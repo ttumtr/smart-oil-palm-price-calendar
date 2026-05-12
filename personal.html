@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Personal Oil Palm Price Calendar</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand-block">
+        <p class="eyebrow">Personal Oil Palm Price Predictor</p>
+        <h1>ปฏิทินพยากรณ์ราคาปาล์มส่วนตัว</h1>
+        <p class="subhead">
+          ราคาโดยประมาณรายวันตั้งแต่ 1 พฤษภาคม 2569 ถึง 30 เมษายน 2570
+        </p>
+      </div>
+      <div class="model-card" aria-live="polite">
+        <span class="model-label">Model</span>
+        <strong id="modelName">กำลังโหลด</strong>
+        <span id="modelMetric">กำลังอ่านข้อมูล</span>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="toolbar" aria-label="ตัวกรองเดือน">
+        <div>
+          <label for="monthSelect">เลือกเดือน</label>
+          <select id="monthSelect"></select>
+        </div>
+        <div class="view-toggle" role="group" aria-label="รูปแบบการแสดงผล">
+          <button class="toggle-button active" type="button" data-view="single">เดือนเดียว</button>
+          <button class="toggle-button" type="button" data-view="all">ทั้งหมด</button>
+        </div>
+      </section>
+
+      <section class="summary-grid" aria-label="สรุปเดือนที่เลือก">
+        <article class="stat-panel">
+          <span>ราคาเฉลี่ย</span>
+          <strong id="avgPrice">-</strong>
+          <small>บาท/กก.</small>
+        </article>
+        <article class="stat-panel">
+          <span>ต่ำสุด</span>
+          <strong id="minPrice">-</strong>
+          <small>บาท/กก.</small>
+        </article>
+        <article class="stat-panel">
+          <span>สูงสุด</span>
+          <strong id="maxPrice">-</strong>
+          <small>บาท/กก.</small>
+        </article>
+        <article class="stat-panel">
+          <span>ช่วงพยากรณ์</span>
+          <strong id="forecastRange">-</strong>
+          <small id="trainingRange">-</small>
+        </article>
+      </section>
+
+      <section class="legend" aria-label="คำอธิบายสี">
+        <span><i class="dot stable"></i>ราคาปกติ</span>
+        <span><i class="dot high"></i>สูงกว่าจังหวะเฉลี่ย</span>
+        <span><i class="dot low"></i>ต่ำกว่าจังหวะเฉลี่ย</span>
+      </section>
+
+      <section id="dayInsight" class="day-insight" aria-live="polite">
+        <div>
+          <span class="insight-label">วันที่เลือก</span>
+          <strong id="insightDate">เลือกวันที่บนปฏิทิน</strong>
+        </div>
+        <div>
+          <span class="insight-label">ราคาพยากรณ์</span>
+          <strong id="insightPrice">-</strong>
+        </div>
+        <div>
+          <span class="insight-label">ช่วงความเชื่อมั่น</span>
+          <strong id="insightRange">-</strong>
+        </div>
+        <div>
+          <span class="insight-label">สถานะ</span>
+          <strong id="insightSignal">-</strong>
+        </div>
+      </section>
+
+      <section id="calendarMount" class="calendar-mount" aria-live="polite"></section>
+
+      <section class="source-panel">
+        <h2>แหล่งข้อมูลและข้อจำกัด</h2>
+        <p id="sourceText"></p>
+        <div id="sourceLinks" class="source-links"></div>
+      </section>
+    </main>
+
+    <script src="assets/data/predictions_personal_2569_2570.js"></script>
+    <script src="assets/app.js"></script>
+  </body>
+</html>
